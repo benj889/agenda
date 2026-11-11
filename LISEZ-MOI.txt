@@ -1,0 +1,9 @@
+AGENDA ANNUEL — version autonome
+
+1. Firebase (une seule fois) : crée le projet, la base Firestore, l'authentification
+   e-mail/mot de passe et les deux comptes, colle les règles de "regles-firestore.txt"
+   (avec vos deux e-mails), puis copie la configuration web dans "config.js".
+2. Netlify : va sur https://app.netlify.com/drop et glisse ce dossier entier.
+3. Ouvre l'adresse obtenue sur ton téléphone > "Sur l'écran d'accueil", puis connecte-toi.
+
+Pour mettre à jour l'appli plus tard : redépose le dossier modifié sur le même site Netlify (onglet Deploys).
