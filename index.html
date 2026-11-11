@@ -402,7 +402,8 @@ async function initDb(){
 }
 window.addEventListener("online",()=>{if(db)setSync("local","Synchronisation…")});
 window.addEventListener("offline",()=>{if(db)setSync("local","Hors ligne — envoyé dès le retour du réseau")});
-if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost"))navigator.serviceWorker.register("sw.js").catch(()=>{});
+if("serviceWorker" in navigator&&(location.protocol==="https:"||location.hostname==="localhost")){const hadCtrl=!!navigator.serviceWorker.controller;navigator.serviceWorker.register("sw.js",{updateViaCache:"none"}).then(r=>r.update()).catch(()=>{});
+  let reloaded=false;navigator.serviceWorker.addEventListener("controllerchange",()=>{if(hadCtrl&&!reloaded){reloaded=true;location.reload()}});}
 
 /* bilan des jours */
 let WD=false;try{WD=localStorage.getItem("ag_wd")==="1"}catch(e){}
